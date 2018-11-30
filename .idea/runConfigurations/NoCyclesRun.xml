@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="NoCyclesRun" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.jeff.fischman.play.App" />
+    <module name="depchaser" />
+    <option name="PROGRAM_PARAMETERS" value="noCycles.txt" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.jeff.fischman.play.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
