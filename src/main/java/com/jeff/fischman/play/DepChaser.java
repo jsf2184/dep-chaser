@@ -22,7 +22,7 @@ public class DepChaser {
     }
 
     // verify that there are no cycles.
-    public boolean validateNoDependencies() {
+    public boolean validateNoDependencyCycles() {
 
         String startVar;
         // Verify all the entries in our DependencyMap. Note, however, that in general, many will be verified

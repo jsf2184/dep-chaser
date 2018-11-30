@@ -27,7 +27,7 @@ public class App
         System.out.printf("App will be using data from file: %s\n", inputFile);
         DependencyMap dependencyMap = DependencyMap.create(fileStream);
         DepChaser depChaser = new DepChaser(dependencyMap);
-        boolean res = depChaser.validateNoDependencies();
+        boolean res = depChaser.validateNoDependencyCycles();
         System.out.printf("DepChaser %s find cycles", res ? "did not" : "did");
     }
 

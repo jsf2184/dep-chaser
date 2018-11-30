@@ -41,7 +41,7 @@ public class DepChaserTests {
         when(_dependencyCheckerFactory.create("a", _dependencyMap, new HashSet<>())).thenReturn(checker1);
         when(_dependencyCheckerFactory.create("d", _dependencyMap, new HashSet<>(Arrays.asList("a", "b", "c")))).thenReturn(checker2);
 
-        Assert.assertTrue(sut.validateNoDependencies());
+        Assert.assertTrue(sut.validateNoDependencyCycles());
         verify(checker1, times(1)).run();
         verify(checker2, times(1)).run();
 
@@ -71,7 +71,7 @@ public class DepChaserTests {
 
         when(_dependencyCheckerFactory.create("a", _dependencyMap, new HashSet<>())).thenReturn(checker1);
 
-        Assert.assertFalse(sut.validateNoDependencies());
+        Assert.assertFalse(sut.validateNoDependencyCycles());
         verify(checker1, times(1)).run();
 
         // Verify no variables were verified
@@ -85,8 +85,7 @@ public class DepChaserTests {
     DepChaser createSut() {
         _dependencyMap = mock(DependencyMap.class);
         _dependencyCheckerFactory = mock(ChildrenDependencyCheckerFactory.class);
-        DepChaser sut = new DepChaser(_dependencyMap, _dependencyCheckerFactory);
-        return sut;
+        return new DepChaser(_dependencyMap, _dependencyCheckerFactory);
     }
 
     ChildrenDependencyChecker mockChildrenDependencyChecker(List<String> visitedVariables) throws Exception {

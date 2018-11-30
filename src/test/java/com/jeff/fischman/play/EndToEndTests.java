@@ -86,7 +86,7 @@ public class EndToEndTests {
     void verifyResult(List<String> input, boolean success) {
         DependencyMap dependencyMap = DependencyMap.create(input.stream());
         DepChaser sut = new DepChaser(dependencyMap);
-        Assert.assertEquals(success, sut.validateNoDependencies());
+        Assert.assertEquals(success, sut.validateNoDependencyCycles());
     }
 
 }
